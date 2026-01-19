@@ -1,136 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Geetika & Rushikesh | Wedding Invitation</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Poppins', sans-serif; }
-    h1,h2,h3 { font-family: 'Playfair Display', serif; }
-  </style>
-</head>
-<body class="bg-gradient-to-br from-rose-50 via-pink-50 to-amber-50 text-gray-800 scroll-smooth">
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
-<!-- MUSIC -->
-<audio id="bgMusic" loop>
-  <source src="pardesia.mp3" type="audio/mpeg">
-</audio>
+export default function ModernWeddingInvitation() {
+  const weddingDate = new Date("2026-03-14T00:00:00").getTime();
 
-<button onclick="toggleMusic()" class="fixed top-4 right-4 bg-white shadow-lg rounded-full px-4 py-2 text-sm">🎵 Music</button>
+  const countdown = () => {
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+    return {
+      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((diff / (1000 * 60)) % 60),
+      seconds: Math.floor((diff / 1000) % 60)
+    };
+  };
 
-<!-- HERO -->
-<section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
-  <p class="uppercase tracking-widest text-pink-500">Save The Date</p>
-  <h1 class="text-5xl md:text-6xl font-bold mt-4 animate-pulse">Geetika & Rushikesh</h1>
-  <p class="mt-4">Are getting married</p>
-  <div class="mt-6 text-2xl font-semibold text-pink-600">14 March 2026</div>
+  const time = countdown();
 
-  <button onclick="scrollToSection('invite')" class="mt-10 px-8 py-3 bg-pink-600 text-white rounded-full shadow-xl hover:bg-pink-700">Open Invitation</button>
-</section>
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-amber-50 flex flex-col items-center justify-center p-6">
 
-<!-- INVITE -->
-<section id="invite" class="py-20 px-6">
-<div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-xl p-10 text-center">
-<h2 class="text-3xl font-bold">You’re Invited 💐</h2>
-<p class="mt-4 lang-en">With immense joy, we invite you to celebrate our special day with us.</p>
-<p class="mt-4 lang-mr hidden">आमच्या आयुष्यातील या खास क्षणी आपली उपस्थिती लाभावी, हीच नम्र विनंती.</p>
+      <motion.h1
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="text-5xl md:text-6xl font-serif font-bold text-gray-800"
+      >
+        Geetika & Rushikesh
+      </motion.h1>
 
-<div class="mt-6 flex justify-center gap-4">
-<button onclick="setLang('en')" class="px-4 py-1 border rounded-full">English</button>
-<button onclick="setLang('mr')" class="px-4 py-1 border rounded-full">मराठी</button>
-</div>
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="mt-4 text-lg"
+      >
+        Are getting married on
+      </motion.p>
 
-<h3 class="mt-10 font-semibold">Countdown</h3>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-<div class="bg-pink-100 p-4 rounded-xl"><div id="days" class="text-2xl font-bold">0</div>Days</div>
-<div class="bg-pink-100 p-4 rounded-xl"><div id="hours" class="text-2xl font-bold">0</div>Hours</div>
-<div class="bg-pink-100 p-4 rounded-xl"><div id="minutes" class="text-2xl font-bold">0</div>Minutes</div>
-<div class="bg-pink-100 p-4 rounded-xl"><div id="seconds" class="text-2xl font-bold">0</div>Seconds</div>
-</div>
-</div>
-</section>
+      <div className="mt-2 text-2xl text-pink-600 font-semibold">14 March 2026</div>
 
-<!-- GALLERY -->
-<section class="py-20 px-6 bg-white">
-<div class="max-w-5xl mx-auto">
-<h2 class="text-center text-3xl font-bold">Memories</h2>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
-<img class="rounded-xl" src="https://source.unsplash.com/300x300/?couple" />
-<img class="rounded-xl" src="https://source.unsplash.com/301x300/?wedding" />
-<img class="rounded-xl" src="https://source.unsplash.com/302x300/?love" />
-<img class="rounded-xl" src="https://source.unsplash.com/303x300/?engagement" />
-</div>
-</div>
-</section>
+      <Card className="mt-10 w-full max-w-xl rounded-3xl shadow-xl">
+        <CardContent className="p-8 text-center">
+          <h2 className="text-2xl font-serif font-bold">You're Invited 💐</h2>
+          <p className="mt-4">Join us in celebrating love, laughter, and forever.</p>
 
-<!-- MAP -->
-<section class="py-20 px-6">
-  <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-8 text-center">
-    <h2 class="text-3xl font-bold">Wedding Venue</h2>
-    <p class="mt-2 text-lg font-medium text-pink-600">Silver star Hotel</p>
-    <iframe 
-      class="w-full h-64 mt-6 rounded-xl" 
-      src="https://maps.app.goo.gl/9B8CLdEhLDbgsVRX9">
-    </iframe>
-    <p class="mt-2 text-sm text-gray-600">Click the map to open in Google Maps</p>
-  </div>
-</section>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+            {Object.entries(time).map(([k, v]) => (
+              <div key={k} className="bg-rose-100 rounded-xl p-4">
+                <div className="text-2xl font-bold">{v}</div>
+                <div className="capitalize">{k}</div>
+              </div>
+            ))}
+          </div>
 
-<!-- RSVP -->
-<section class="py-20 px-6 bg-white">
-<div class="max-w-xl mx-auto bg-rose-50 p-8 rounded-3xl shadow-xl text-center">
-<h2 class="text-3xl font-bold">RSVP</h2>
-<input id="guest" placeholder="Your Name" class="mt-4 w-full p-3 border rounded-xl" />
-<button onclick="rsvp()" class="mt-4 w-full bg-pink-600 text-white py-3 rounded-xl">Submit</button>
-<p id="rsvpMsg" class="mt-4 text-green-600 hidden">Thank you for confirming 💖</p>
-</div>
-</section>
+          <Button className="mt-8 w-full rounded-xl">📍 View Venue</Button>
+        </CardContent>
+      </Card>
 
-<!-- QR -->
-<section class="py-20 px-6">
-<div class="max-w-md mx-auto bg-white p-8 rounded-3xl shadow-xl text-center">
-<h2 class="text-2xl font-bold">Scan Invitation</h2>
-<div id="qrcode" class="mt-6 flex justify-center"></div>
-</div>
-</section>
-
-<!-- SHARE -->
-<section class="text-center py-10">
-<a id="whatsapp" class="inline-block bg-green-500 text-white px-6 py-3 rounded-full shadow-lg">Share on WhatsApp</a>
-</section>
-
-<footer class="text-center py-10 text-sm">With Love, Geetika & Rushikesh 💕</footer>
-
-<script>
-// Auto play music on load (browser friendly)
-window.addEventListener('click', () => {
-  const music = document.getElementById('bgMusic');
-  if(music.paused){ music.play(); }
-},{ once:true });
-const weddingDate = new Date("March 14, 2026 00:00:00").getTime();
-setInterval(()=>{
-const now=new Date().getTime();
-const diff=weddingDate-now;
-if(diff>0){
-days.innerText=Math.floor(diff/(1000*60*60*24));
-hours.innerText=Math.floor((diff/(1000*60*60))%24);
-minutes.innerText=Math.floor((diff/(1000*60))%60);
-seconds.innerText=Math.floor((diff/1000)%60);
-}},1000);
-
-function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});toggleMusic();}
-function rsvp(){rsvpMsg.classList.remove('hidden')}
-function toggleMusic(){const m=document.getElementById('bgMusic');m.paused?m.play():m.pause()}
-function setLang(l){document.querySelectorAll('.lang-en').forEach(e=>e.classList.toggle('hidden',l!=='en'))
-document.querySelectorAll('.lang-mr').forEach(e=>e.classList.toggle('hidden',l!=='mr'))}
-
-new QRCode(document.getElementById("qrcode"), window.location.href);
-document.getElementById('whatsapp').href="https://wa.me/?text="+encodeURIComponent(window.location.href);
-</script>
-</body>
-</html>
+      <footer className="mt-10 text-sm text-gray-500">With love, Geetika & Rushikesh 💕</footer>
+    </div>
+  );
+}
