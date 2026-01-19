@@ -3,109 +3,125 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Geetika & Rushikesh | Wedding Invitation</title>
+  <title>Geetika & Rushi | Wedding Invitation</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/framer-motion@11.0.0/dist/framer-motion.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Poppins', sans-serif; }
-    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    h1,h2,h3 { font-family: 'Playfair Display', serif; }
   </style>
 </head>
-<body class="bg-gradient-to-br from-rose-50 via-pink-50 to-amber-50 text-gray-800">
+<body class="bg-gradient-to-br from-rose-50 via-pink-50 to-amber-50 text-gray-800 scroll-smooth">
 
-  <!-- Hero Section -->
-  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6">
-    <p class="tracking-widest uppercase text-sm text-pink-500">Wedding Invitation</p>
-    <h1 class="text-5xl md:text-6xl font-bold mt-4">Geetika & Rushikesh</h1>
-    <p class="mt-4 text-lg">Are getting married</p>
-    <div class="mt-6 text-2xl font-semibold text-pink-600">14 March 2026</div>
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
 
-    <button onclick="scrollToSection('details')" class="mt-10 px-8 py-3 rounded-full bg-pink-600 text-white shadow-lg hover:bg-pink-700 transition">View Details</button>
-  </section>
+<button onclick="toggleMusic()" class="fixed top-4 right-4 bg-white shadow-lg rounded-full px-4 py-2 text-sm">🎵 Music</button>
 
-  <!-- Details Section -->
-  <section id="details" class="py-20 px-6">
-    <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-xl p-10 text-center">
-      <h2 class="text-3xl font-bold">You’re Invited 💐</h2>
-      <p class="mt-4">With immense joy, we invite you to celebrate our special day with us and bless our new beginning.</p>
+<!-- HERO -->
+<section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+  <p class="uppercase tracking-widest text-pink-500">Save The Date</p>
+  <h1 class="text-5xl md:text-6xl font-bold mt-4 animate-pulse">Geetika & Rushi</h1>
+  <p class="mt-4">Are getting married</p>
+  <div class="mt-6 text-2xl font-semibold text-pink-600">14 March 2026</div>
 
-      <h3 class="mt-10 text-xl font-semibold">Countdown to the Big Day</h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
-        <div class="bg-pink-100 rounded-2xl p-4"><div id="days" class="text-3xl font-bold">0</div><div>Days</div></div>
-        <div class="bg-pink-100 rounded-2xl p-4"><div id="hours" class="text-3xl font-bold">0</div><div>Hours</div></div>
-        <div class="bg-pink-100 rounded-2xl p-4"><div id="minutes" class="text-3xl font-bold">0</div><div>Minutes</div></div>
-        <div class="bg-pink-100 rounded-2xl p-4"><div id="seconds" class="text-3xl font-bold">0</div><div>Seconds</div></div>
-      </div>
-    </div>
-  </section>
+  <button onclick="scrollToSection('invite')" class="mt-10 px-8 py-3 bg-pink-600 text-white rounded-full shadow-xl hover:bg-pink-700">Open Invitation</button>
+</section>
 
-  <!-- Events Section -->
-  <section class="py-20 px-6 bg-white">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold">Wedding Events</h2>
-      <div class="grid md:grid-cols-3 gap-8 mt-10">
-        <div class="p-6 rounded-2xl shadow-lg bg-rose-50">
-          <h3 class="font-semibold text-xl">Haldi</h3>
-          <p class="mt-2">Morning Ceremony</p>
-        </div>
-        <div class="p-6 rounded-2xl shadow-lg bg-rose-50">
-          <h3 class="font-semibold text-xl">Wedding</h3>
-          <p class="mt-2">14 March 2026</p>
-        </div>
-        <div class="p-6 rounded-2xl shadow-lg bg-rose-50">
-          <h3 class="font-semibold text-xl">Reception</h3>
-          <p class="mt-2">Evening Celebration</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- INVITE -->
+<section id="invite" class="py-20 px-6">
+<div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-xl p-10 text-center">
+<h2 class="text-3xl font-bold">You’re Invited 💐</h2>
+<p class="mt-4 lang-en">With immense joy, we invite you to celebrate our special day with us.</p>
+<p class="mt-4 lang-mr hidden">आमच्या आयुष्यातील या खास क्षणी आपली उपस्थिती लाभावी, हीच नम्र विनंती.</p>
 
-  <!-- RSVP Section -->
-  <section class="py-20 px-6">
-    <div class="max-w-xl mx-auto bg-white rounded-3xl shadow-xl p-10 text-center">
-      <h2 class="text-3xl font-bold">RSVP</h2>
-      <p class="mt-2">We would love to know if you’ll join us</p>
+<div class="mt-6 flex justify-center gap-4">
+<button onclick="setLang('en')" class="px-4 py-1 border rounded-full">English</button>
+<button onclick="setLang('mr')" class="px-4 py-1 border rounded-full">मराठी</button>
+</div>
 
-      <input id="guestName" placeholder="Your Name" class="mt-6 w-full p-3 border rounded-xl" />
-      <button onclick="submitRSVP()" class="mt-4 w-full bg-pink-600 text-white py-3 rounded-xl hover:bg-pink-700 transition">Submit</button>
+<h3 class="mt-10 font-semibold">Countdown</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+<div class="bg-pink-100 p-4 rounded-xl"><div id="days" class="text-2xl font-bold">0</div>Days</div>
+<div class="bg-pink-100 p-4 rounded-xl"><div id="hours" class="text-2xl font-bold">0</div>Hours</div>
+<div class="bg-pink-100 p-4 rounded-xl"><div id="minutes" class="text-2xl font-bold">0</div>Minutes</div>
+<div class="bg-pink-100 p-4 rounded-xl"><div id="seconds" class="text-2xl font-bold">0</div>Seconds</div>
+</div>
+</div>
+</section>
 
-      <p id="rsvpMsg" class="mt-4 text-green-600 hidden">Thank you for your response 💖</p>
-    </div>
-  </section>
+<!-- GALLERY -->
+<section class="py-20 px-6 bg-white">
+<div class="max-w-5xl mx-auto">
+<h2 class="text-center text-3xl font-bold">Memories</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+<img class="rounded-xl" src="https://source.unsplash.com/300x300/?couple" />
+<img class="rounded-xl" src="https://source.unsplash.com/301x300/?wedding" />
+<img class="rounded-xl" src="https://source.unsplash.com/302x300/?love" />
+<img class="rounded-xl" src="https://source.unsplash.com/303x300/?engagement" />
+</div>
+</div>
+</section>
 
-  <!-- Footer -->
-  <footer class="text-center py-10 text-sm text-gray-500">
-    With love, Geetika & Rushikesh 💕
-  </footer>
+<!-- MAP -->
+<section class="py-20 px-6">
+<div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-8 text-center">
+<h2 class="text-3xl font-bold">Venue</h2>
+<p class="mt-2">(You can replace map link later)</p>
+<iframe class="w-full h-64 mt-6 rounded-xl" src="https://maps.google.com/maps?q=mumbai&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</div>
+</section>
+
+<!-- RSVP -->
+<section class="py-20 px-6 bg-white">
+<div class="max-w-xl mx-auto bg-rose-50 p-8 rounded-3xl shadow-xl text-center">
+<h2 class="text-3xl font-bold">RSVP</h2>
+<input id="guest" placeholder="Your Name" class="mt-4 w-full p-3 border rounded-xl" />
+<button onclick="rsvp()" class="mt-4 w-full bg-pink-600 text-white py-3 rounded-xl">Submit</button>
+<p id="rsvpMsg" class="mt-4 text-green-600 hidden">Thank you for confirming 💖</p>
+</div>
+</section>
+
+<!-- QR -->
+<section class="py-20 px-6">
+<div class="max-w-md mx-auto bg-white p-8 rounded-3xl shadow-xl text-center">
+<h2 class="text-2xl font-bold">Scan Invitation</h2>
+<div id="qrcode" class="mt-6 flex justify-center"></div>
+</div>
+</section>
+
+<!-- SHARE -->
+<section class="text-center py-10">
+<a id="whatsapp" class="inline-block bg-green-500 text-white px-6 py-3 rounded-full shadow-lg">Share on WhatsApp</a>
+</section>
+
+<footer class="text-center py-10 text-sm">With Love, Geetika & Rushi 💕</footer>
 
 <script>
-  const weddingDate = new Date("March 14, 2026 00:00:00").getTime();
+const weddingDate = new Date("March 14, 2026 00:00:00").getTime();
+setInterval(()=>{
+const now=new Date().getTime();
+const diff=weddingDate-now;
+if(diff>0){
+days.innerText=Math.floor(diff/(1000*60*60*24));
+hours.innerText=Math.floor((diff/(1000*60*60))%24);
+minutes.innerText=Math.floor((diff/(1000*60))%60);
+seconds.innerText=Math.floor((diff/1000)%60);
+}},1000);
 
-  setInterval(() => {
-    const now = new Date().getTime();
-    const diff = weddingDate - now;
+function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+function rsvp(){rsvpMsg.classList.remove('hidden')}
+function toggleMusic(){const m=document.getElementById('bgMusic');m.paused?m.play():m.pause()}
+function setLang(l){document.querySelectorAll('.lang-en').forEach(e=>e.classList.toggle('hidden',l!=='en'))
+document.querySelectorAll('.lang-mr').forEach(e=>e.classList.toggle('hidden',l!=='mr'))}
 
-    if (diff > 0) {
-      document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-      document.getElementById("hours").innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      document.getElementById("minutes").innerText = Math.floor((diff / (1000 * 60)) % 60);
-      document.getElementById("seconds").innerText = Math.floor((diff / 1000) % 60);
-    }
-  }, 1000);
-
-  function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-  }
-
-  function submitRSVP() {
-    const name = document.getElementById("guestName").value;
-    if(name.trim() !== ""){
-      document.getElementById("rsvpMsg").classList.remove("hidden");
-    }
-  }
+new QRCode(document.getElementById("qrcode"), window.location.href);
+document.getElementById('whatsapp').href="https://wa.me/?text="+encodeURIComponent(window.location.href);
 </script>
 </body>
 </html>
