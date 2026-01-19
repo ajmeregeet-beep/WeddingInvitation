@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Geetika & Rushikesh | Wedding Invitation</title>
+  <title>Geetika & Rushi | Wedding Invitation</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,8 +17,7 @@
 <body class="bg-gradient-to-br from-rose-50 via-pink-50 to-amber-50 text-gray-800 scroll-smooth">
 
 <!-- MUSIC -->
-<audio id="bgMusic" autoplay loop>
-  <!-- Place your song file in same folder and name it pardesia.mp3 -->
+<audio id="bgMusic" loop>
   <source src="pardesia.mp3" type="audio/mpeg">
 </audio>
 
@@ -27,7 +26,7 @@
 <!-- HERO -->
 <section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
   <p class="uppercase tracking-widest text-pink-500">Save The Date</p>
-  <h1 class="text-5xl md:text-6xl font-bold mt-4 animate-pulse">Geetika & Rushi</h1>
+  <h1 class="text-5xl md:text-6xl font-bold mt-4 animate-pulse">Geetika & Rushikesh</h1>
   <p class="mt-4">Are getting married</p>
   <div class="mt-6 text-2xl font-semibold text-pink-600">14 March 2026</div>
 
@@ -71,11 +70,15 @@
 
 <!-- MAP -->
 <section class="py-20 px-6">
-<div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-8 text-center">
-<h2 class="text-3xl font-bold">Venue</h2>
-<p class="mt-2">(You can replace map link later)</p>
-<iframe class="w-full h-64 mt-6 rounded-xl" src="https://maps.google.com/maps?q=mumbai&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-</div>
+  <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-8 text-center">
+    <h2 class="text-3xl font-bold">Wedding Venue</h2>
+    <p class="mt-2 text-lg font-medium text-pink-600">Silver star Hotel</p>
+    <iframe 
+      class="w-full h-64 mt-6 rounded-xl" 
+      src="https://maps.google.com/maps?q=9B8CLdEhLDbgsVRX9&t=&z=17&ie=UTF8&iwloc=&output=embed">
+    </iframe>
+    <p class="mt-2 text-sm text-gray-600">Click the map to open in Google Maps</p>
+  </div>
 </section>
 
 <!-- RSVP -->
@@ -104,6 +107,11 @@
 <footer class="text-center py-10 text-sm">With Love, Geetika & Rushikesh 💕</footer>
 
 <script>
+// Auto play music on load (browser friendly)
+window.addEventListener('click', () => {
+  const music = document.getElementById('bgMusic');
+  if(music.paused){ music.play(); }
+},{ once:true });
 const weddingDate = new Date("March 14, 2026 00:00:00").getTime();
 setInterval(()=>{
 const now=new Date().getTime();
