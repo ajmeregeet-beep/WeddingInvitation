@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Invitation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+      color: #333;
+      text-align: center;
+    }
+    .container {
+      padding: 30px 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-weight: normal;
+      margin-top: 0;
+    }
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    .date {
+      font-size: 1.8rem;
+      color: #d63384;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .time-box {
+      background: #d63384;
+      color: white;
+      padding: 12px 15px;
+      border-radius: 12px;
+      min-width: 70px;
+    }
+    .time-box span {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 1rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>💐 Wedding Invitation 💐</h2>
+    <h1>Geetika & Rushi</h1>
+
+    <div class="card">
+      <p>With immense joy, we invite you to celebrate our special day with us.</p>
+      <div class="date">14th March 2026</div>
+      <p>Please join us and bless us as we begin our new journey together.</p>
+
+      <h3>Countdown to the Big Day</h3>
+      <div class="countdown">
+        <div class="time-box"><span id="days">0</span>Days</div>
+        <div class="time-box"><span id="hours">0</span>Hours</div>
+        <div class="time-box"><span id="minutes">0</span>Minutes</div>
+        <div class="time-box"><span id="seconds">0</span>Seconds</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      We can't wait to celebrate with you 💖
+    </div>
+  </div>
+
+  <script>
+    const weddingDate = new Date("March 14, 2026 00:00:00").getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = weddingDate - now;
+
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
