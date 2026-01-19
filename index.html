@@ -123,7 +123,7 @@ minutes.innerText=Math.floor((diff/(1000*60))%60);
 seconds.innerText=Math.floor((diff/1000)%60);
 }},1000);
 
-function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});toggleMusic();}
 function rsvp(){rsvpMsg.classList.remove('hidden')}
 function toggleMusic(){const m=document.getElementById('bgMusic');m.paused?m.play():m.pause()}
 function setLang(l){document.querySelectorAll('.lang-en').forEach(e=>e.classList.toggle('hidden',l!=='en'))
