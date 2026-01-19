@@ -3,110 +3,109 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wedding Invitation</title>
+  <title>Geetika & Rushikesh | Wedding Invitation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/framer-motion@11.0.0/dist/framer-motion.umd.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #fff0f5, #ffe4e1);
-      color: #333;
-      text-align: center;
-    }
-    .container {
-      padding: 30px 20px;
-      max-width: 700px;
-      margin: auto;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-weight: normal;
-      margin-top: 0;
-    }
-    .card {
-      background: white;
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      margin-top: 20px;
-    }
-    .date {
-      font-size: 1.8rem;
-      color: #d63384;
-      margin: 10px 0;
-      font-weight: bold;
-    }
-    .countdown {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-    .time-box {
-      background: #d63384;
-      color: white;
-      padding: 12px 15px;
-      border-radius: 12px;
-      min-width: 70px;
-    }
-    .time-box span {
-      display: block;
-      font-size: 1.4rem;
-      font-weight: bold;
-    }
-    .footer {
-      margin-top: 30px;
-      font-size: 1rem;
-      color: #555;
-    }
+    body { font-family: 'Poppins', sans-serif; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
   </style>
 </head>
-<body>
-  <div class="container">
-    <h2>💐 Wedding Invitation 💐</h2>
-    <h1>Geetika & Rushikesh</h1>
+<body class="bg-gradient-to-br from-rose-50 via-pink-50 to-amber-50 text-gray-800">
 
-    <div class="card">
-      <p>With immense joy, we invite you to celebrate our special day with us.</p>
-      <div class="date">14th March 2026</div>
-      <p>Please join us and bless us as we begin our new journey together.</p>
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6">
+    <p class="tracking-widest uppercase text-sm text-pink-500">Wedding Invitation</p>
+    <h1 class="text-5xl md:text-6xl font-bold mt-4">Geetika & Rushi</h1>
+    <p class="mt-4 text-lg">Are getting married</p>
+    <div class="mt-6 text-2xl font-semibold text-pink-600">14 March 2026</div>
 
-      <h3>Countdown to the Big Day</h3>
-      <div class="countdown">
-        <div class="time-box"><span id="days">0</span>Days</div>
-        <div class="time-box"><span id="hours">0</span>Hours</div>
-        <div class="time-box"><span id="minutes">0</span>Minutes</div>
-        <div class="time-box"><span id="seconds">0</span>Seconds</div>
+    <button onclick="scrollToSection('details')" class="mt-10 px-8 py-3 rounded-full bg-pink-600 text-white shadow-lg hover:bg-pink-700 transition">View Details</button>
+  </section>
+
+  <!-- Details Section -->
+  <section id="details" class="py-20 px-6">
+    <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-xl p-10 text-center">
+      <h2 class="text-3xl font-bold">You’re Invited 💐</h2>
+      <p class="mt-4">With immense joy, we invite you to celebrate our special day with us and bless our new beginning.</p>
+
+      <h3 class="mt-10 text-xl font-semibold">Countdown to the Big Day</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
+        <div class="bg-pink-100 rounded-2xl p-4"><div id="days" class="text-3xl font-bold">0</div><div>Days</div></div>
+        <div class="bg-pink-100 rounded-2xl p-4"><div id="hours" class="text-3xl font-bold">0</div><div>Hours</div></div>
+        <div class="bg-pink-100 rounded-2xl p-4"><div id="minutes" class="text-3xl font-bold">0</div><div>Minutes</div></div>
+        <div class="bg-pink-100 rounded-2xl p-4"><div id="seconds" class="text-3xl font-bold">0</div><div>Seconds</div></div>
       </div>
     </div>
+  </section>
 
-    <div class="footer">
-      We can't wait to celebrate with you 💖
+  <!-- Events Section -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold">Wedding Events</h2>
+      <div class="grid md:grid-cols-3 gap-8 mt-10">
+        <div class="p-6 rounded-2xl shadow-lg bg-rose-50">
+          <h3 class="font-semibold text-xl">Haldi</h3>
+          <p class="mt-2">Morning Ceremony</p>
+        </div>
+        <div class="p-6 rounded-2xl shadow-lg bg-rose-50">
+          <h3 class="font-semibold text-xl">Wedding</h3>
+          <p class="mt-2">14 March 2026</p>
+        </div>
+        <div class="p-6 rounded-2xl shadow-lg bg-rose-50">
+          <h3 class="font-semibold text-xl">Reception</h3>
+          <p class="mt-2">Evening Celebration</p>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <script>
-    const weddingDate = new Date("March 14, 2026 00:00:00").getTime();
+  <!-- RSVP Section -->
+  <section class="py-20 px-6">
+    <div class="max-w-xl mx-auto bg-white rounded-3xl shadow-xl p-10 text-center">
+      <h2 class="text-3xl font-bold">RSVP</h2>
+      <p class="mt-2">We would love to know if you’ll join us</p>
 
-    setInterval(() => {
-      const now = new Date().getTime();
-      const diff = weddingDate - now;
+      <input id="guestName" placeholder="Your Name" class="mt-6 w-full p-3 border rounded-xl" />
+      <button onclick="submitRSVP()" class="mt-4 w-full bg-pink-600 text-white py-3 rounded-xl hover:bg-pink-700 transition">Submit</button>
 
-      if (diff > 0) {
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      <p id="rsvpMsg" class="mt-4 text-green-600 hidden">Thank you for your response 💖</p>
+    </div>
+  </section>
 
-        document.getElementById("days").innerText = days;
-        document.getElementById("hours").innerText = hours;
-        document.getElementById("minutes").innerText = minutes;
-        document.getElementById("seconds").innerText = seconds;
-      }
-    }, 1000);
-  </script>
+  <!-- Footer -->
+  <footer class="text-center py-10 text-sm text-gray-500">
+    With love, Geetika & Rushi 💕
+  </footer>
+
+<script>
+  const weddingDate = new Date("March 14, 2026 00:00:00").getTime();
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+
+    if (diff > 0) {
+      document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.getElementById("hours").innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      document.getElementById("minutes").innerText = Math.floor((diff / (1000 * 60)) % 60);
+      document.getElementById("seconds").innerText = Math.floor((diff / 1000) % 60);
+    }
+  }, 1000);
+
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function submitRSVP() {
+    const name = document.getElementById("guestName").value;
+    if(name.trim() !== ""){
+      document.getElementById("rsvpMsg").classList.remove("hidden");
+    }
+  }
+</script>
 </body>
 </html>
